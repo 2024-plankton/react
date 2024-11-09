@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Chat.css";
 import botProfile from './img/logo_smile_2.png';
 import btnPointer from './img/btn_pointer.png';
+import {v4 as uuidv4} from "uuid";
 
 function Chat() {
     const [messages, setMessages] = useState([]);
@@ -29,7 +30,7 @@ function Chat() {
         try {
             const chatServerUrl = process.env.REACT_APP_CHAT_SERVER_URL;
             const response = await axios.post(`${chatServerUrl}/chat`, {
-            name: "John",
+            name: uuidv4(),
             query: input,
             });
 
