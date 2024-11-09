@@ -2,7 +2,7 @@
 import './App.css';
 import Chat from './components/Chat/Chat';
 import {Link, Element} from 'react-scroll';
-import logo from './components/Chat/itda_logo.jpg';
+import logo from './components/Chat/logo_white.jpg';
 
 function App() {
   return (

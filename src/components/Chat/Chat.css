@@ -2,7 +2,7 @@
     width: 50vw;
     height: 70vh;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -10,6 +10,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, width 0.3s ease;
     z-index: 10;
+    background-color: white;
 }
 
 .chat-container.shrink {
@@ -92,7 +93,7 @@
     flex-grow: 1;
     padding: 8px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 40px;
     outline: none;
 }
 
@@ -102,7 +103,7 @@
     background-color: #32C348;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 40px;
     cursor: pointer;
     outline: none;
     transition: background-color 0.3s;
