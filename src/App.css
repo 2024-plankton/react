@@ -15,12 +15,12 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: grey;
+  background-color: #32C348;
   /* flex container, 자식은 flex item */
 }
 
 .name{
-  color: black;
+  color: white;
   font-size: 11vh;
   margin-left: 20px;
   align-self: flex-start;
