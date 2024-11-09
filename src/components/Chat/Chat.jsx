@@ -26,7 +26,6 @@ function Chat(){
     return(
         <div className = "chat-wrapper">
             <div className = "chat-container">
-                <h2>Chat</h2>   
                 {showAnimation && (
                     <div className = "animation">
                         <Player 

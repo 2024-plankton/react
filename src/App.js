@@ -14,7 +14,7 @@ function App() {
       </div>
 
       <div className = "body">
-        <Element name = 'chat'>
+        <Element id = 'chat'>
           <Chat></Chat>
         </Element>
       </div>
