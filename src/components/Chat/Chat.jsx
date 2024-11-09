@@ -13,6 +13,7 @@ function Chat() {
     const [clickedMessage, setClickedMessage] = useState(null);
     const [isChatShrinking, setIsChatShrinking] = useState(false);
     const messageBoxRef = useRef(null);
+    const id = uuidv4();
 
     useEffect(() => {
         if(messageBoxRef.current){
@@ -30,7 +31,7 @@ function Chat() {
         try {
             const chatServerUrl = process.env.REACT_APP_CHAT_SERVER_URL;
             const response = await axios.post(`${chatServerUrl}/chat`, {
-            name: uuidv4(),
+            name: id,
             query: input,
             });
 
