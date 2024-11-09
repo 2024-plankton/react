@@ -2,14 +2,13 @@ import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 // import { Player } from "@lottiefiles/react-lottie-player";
 import "./Chat.css";
-import animationData from "./animation1.json";
 import botProfile from './img/logo_smile_2.png';
 import btnPointer from './img/btn_pointer.png';
 
 function Chat() {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState("");
-    const [showAnimation, setShowAnimation] = useState(false);
+    const [setShowAnimation] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [clickedMessage, setClickedMessage] = useState(null);
     const messageBoxRef = useRef(null);
