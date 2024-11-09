@@ -4,10 +4,12 @@ import Chat from './components/Chat/Chat';
 import { Link, Element } from 'react-scroll';
 import logo from './components/Chat/img/logo_white.jpg';
 import Start from './components/start/start'; // Start 컴포넌트 불러오기
+import {v4 as uuidv4} from "uuid";
 
 function App() {
     const [showMainContent, setShowMainContent] = useState(false);
-    const userName = "채우"; // 동적으로 표시할 사용자 이름
+    const id = uuidv4(); // 동적으로 표시할 사용자 이름
+    console.log(id);
 
     useEffect(() => {
         // 2.5초 후에 Start 컴포넌트를 숨기고 메인 콘텐츠를 표시

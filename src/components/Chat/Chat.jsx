@@ -8,7 +8,7 @@ function Chat() {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState("");
     const [showModal, setShowModal] = useState(false);
-    const [showAnimation, setShowAnimation] = useState(false);
+    const [howAnimation, setShowAnimation] = useState(false);
     const [clickedMessage, setClickedMessage] = useState(null);
     const [isChatShrinking, setIsChatShrinking] = useState(false);
     const messageBoxRef = useRef(null);
