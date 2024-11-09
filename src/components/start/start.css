@@ -1,0 +1,29 @@
+.image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* 컨테이너의 너비 */
+    height: 100vh; /* 전체 화면 높이 */
+}
+
+.image-display {
+    max-width: 130%; /* 이미지의 최대 너비 */
+    max-height: 130%; /* 이미지의 최대 높이 */
+    object-fit: contain; /* 이미지 비율을 유지하면서 맞춤 */
+}
+
+.overlay-text {
+    position: absolute;
+    top: 62%; /* 컨테이너의 세로 중앙 */
+    left: 50%; /* 컨테이너의 가로 중앙 */
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    font-size: 30px; /* 텍스트 크기 */
+    color: white; /* 텍스트 색상 */
+    text-align: center;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0); /* 배경색 (투명도 포함) */
+    padding: 10px; /* 텍스트 패딩 */
+    border-radius: 10px; /* 둥근 모서리 */
+    z-index: 1; /* 이미지 위에 텍스트를 표시 */
+}
