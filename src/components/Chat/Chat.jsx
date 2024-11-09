@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import { Player } from "@lottiefiles/react-lottie-player";
+// import { Player } from "@lottiefiles/react-lottie-player";
 import "./Chat.css";
 import animationData from "./animation1.json";
 import botProfile from './img/logo_smile_2.png';
@@ -35,7 +35,7 @@ function Chat() {
             });
 
             // 서버 응답을 messages 상태에 추가
-            setMessages((prevMessages) => [...prevMessages, {type: 'bot', text: response.data.reply},
+            setMessages((prevMessages) => [...prevMessages, {type: 'bot', text: response.data.responses[0].text},
             ]); // 서버에서 응답 메시지를 response.data.reply로 가정합니다.
         }
         catch (error) {
@@ -68,7 +68,7 @@ function Chat() {
     return (
         <div className="chat-wrapper">
             <div className="chat-container">
-                {showAnimation && (
+                {/* {showAnimation && (
                     <div className="animation">
                         <Player
                             autoplay
@@ -77,7 +77,7 @@ function Chat() {
                             style={{ height: "100px", width: "100px" }}
                         />
                     </div>
-                )}
+                )} */}
                 <div className="message-box" ref = {messageBoxRef}>
                     {messages.map((msg, index) => (
                         <div
