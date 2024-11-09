@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 50vw;
-    height: 70vh;
+    width: 53vw;
+    height: 75vh;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 30px;
@@ -70,7 +70,7 @@
 .user-message {
     align-self: flex-end;
     position: relative;
-    padding: 10px;
+    padding: 7px;
     max-width: 70%;
     border-radius: 20px;
     background-color: #32C348;
@@ -98,7 +98,7 @@
     background-color: #E9E9EB;
     color: black;
     border-radius: 20px;
-    padding: 10px;
+    padding: 7px;
     max-width: 70%;
 }
 
@@ -140,7 +140,7 @@
     margin-left: 8px;
     padding: 8px 12px;
     border: none;
-    border-radius: 40px;
+    border-radius: 99px;
     cursor: pointer;
     outline: none;
     transition: background-color 0.3s;

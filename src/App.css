@@ -1,5 +1,5 @@
 .logo {
-  padding-top: 20px;
+  padding-top: 10px;
   width: 80px;
   height: auto;
 }
@@ -39,10 +39,10 @@ html, body {
   /* height: 85vh; */
   display: flex;
   justify-content: center;
-  flex-grow: 1;
+  flex-grow: 1px;
   align-items: center;
   box-sizing: border-box;
-  padding-top: 3vh;
+  padding-top: 1vh;
 }
 
 .cursor{

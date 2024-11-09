@@ -91,7 +91,14 @@ function Chat() {
                         placeholder="메시지를 입력하세요."
                     />
                     <button onClick={handleSend}    className="send-button">
-                        <img src = {btnPointer} alt = "Button Pointer" style = {{width: '20px', height: '20px'}} />
+                        <img
+                            src = {btnPointer}
+                            alt = "Button Pointer"
+                            style = {{
+                                maxWidth: '20px',
+                                maxHeight: '20px',
+                                objeftFit: 'contain'
+                            }} />
                     </button>
                 </div>
             </div>
