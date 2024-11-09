@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { Player } from "@lottiefiles/react-lottie-player";
 import "./Chat.css";
@@ -12,6 +12,13 @@ function Chat() {
     const [showAnimation, setShowAnimation] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [clickedMessage, setClickedMessage] = useState(null);
+    const messageBoxRef = useRef(null);
+
+    useEffect(() => {
+        if(messageBoxRef.current){
+            messageBoxRef.current.scrollTop = messageBoxRef.current.scrollHeight;
+        }
+    }, [messages]);
 
     const handleSend = async () => {
         if (input.trim() === "") return;
@@ -71,7 +78,7 @@ function Chat() {
                         />
                     </div>
                 )}
-                <div className="message-box">
+                <div className="message-box" ref = {messageBoxRef}>
                     {messages.map((msg, index) => (
                         <div
                             key={index}
