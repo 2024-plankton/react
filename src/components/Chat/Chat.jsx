@@ -3,6 +3,8 @@ import axios from "axios";
 import "./Chat.css";
 import botProfile from './img/logo_smile_2.png';
 import btnPointer from './img/btn_pointer.png';
+import eventImg from './img/event.png';
+
 import {v4 as uuidv4} from "uuid";
 
 function Chat() {
@@ -74,6 +76,11 @@ function Chat() {
         }
     };
 
+    const handleCloseModal = () => {
+        setShowModal(false);
+        setIsChatShrinking(false);
+    }
+
     return (
         <div className = {`chat-wrapper`}>
             <div className = {`chat-container ${isChatShrinking ? 'shrink' : ''}`}>
@@ -120,9 +127,9 @@ function Chat() {
                 </div>
             </div>
             {showModal && clickedMessage === 'bot' && (
-                <div className = {`modal-container expand`} onClick = {() => setShowModal(false)}>
+                <div className = "modal-container expand" onClick = {handleCloseModal}>
                     <div className = "modal">
-                        <p>Modal Content</p>
+                        <img src = {eventImg} alt = "Event Image" className = "modal-image" />
                     </div>
                 </div>
             )}
