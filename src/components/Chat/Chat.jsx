@@ -85,7 +85,9 @@ function Chat() {
                         ) : (
                             <div className = "message-bot">
                                 <img src = {botProfile} alt = "Bot Profile" className = "bot-profile" />
-                                <div className = "bot-message">{msg.text}</div>
+                                <div className = "bot-message">
+                                    {msg.text}
+                                </div>
                             </div>
                             )}
                         </div>

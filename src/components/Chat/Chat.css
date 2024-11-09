@@ -58,13 +58,28 @@
     display: flex;
     width: 100%;
     margin: 4px 0;
+    opacity: 0;
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .message.user {
+    animation-delay: 0s;
     justify-content: flex-end;
 }
 
 .message.bot {
+    animation-delay: 0.5s;
     display: flex;
     flex-direction: row;
     justify-content: flex-start; 
