@@ -35,6 +35,8 @@ function Chat() {
             query: input,
             });
 
+            const botMessage = response.data.responses ? response.data.responses[0].text : "응답이 없습니다.";
+
             // 서버 응답을 messages 상태에 추가
             setMessages((prevMessages) => [...prevMessages, {type: 'bot', text: response.data.responses[0].text},
             ]); // 서버에서 응답 메시지를 response.data.reply로 가정합니다.
@@ -90,7 +92,7 @@ function Chat() {
                             <div className = "message-bot">
                                 <img src = {botProfile} alt = "Bot Profile" className = "bot-profile" />
                                 <div className = "bot-message">
-                                    {msg.text}
+                                    <div dangerouslySetInnerHTML = {{__html: msg.text}} />
                                 </div>
                             </div>
                             )}
