@@ -71,6 +71,7 @@
     align-items: center;
     width: 100%;
     margin: 4px 0;
+    cursor: pointer;
 }
 
 .user-message {

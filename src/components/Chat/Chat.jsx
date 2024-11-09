@@ -11,6 +11,7 @@ function Chat() {
     const [input, setInput] = useState("");
     const [showAnimation, setShowAnimation] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [clickedMessage, setClickedMessage] = useState(null);
 
     const handleSend = async () => {
         if (input.trim() === "") return;
@@ -46,8 +47,15 @@ function Chat() {
         setTimeout(() => setShowAnimation(false), 2490);
     };
 
-    const handleShowModal = () => {
-        setShowModal((prevState) => !prevState);
+    const handleShowModal = (msgType) => {
+        if(msgType === 'bot'){
+            setClickedMessage(msgType);
+            setShowModal(true);
+        }
+        else {
+            setClickedMessage(null);
+            setShowModal(false);
+        }
     };
 
     return (
@@ -56,10 +64,10 @@ function Chat() {
                 {showAnimation && (
                     <div className="animation">
                         <Player
-                        autoplay
-                        loop={false}
-                        src={animationData}
-                        style={{ height: "100px", width: "100px" }}
+                            autoplay
+                            loop={false}
+                            src={animationData}
+                            style={{ height: "100px", width: "100px" }}
                         />
                     </div>
                 )}
@@ -68,7 +76,7 @@ function Chat() {
                         <div
                             key={index}
                             className={`message ${msg.type}`}
-                            onClick={handleShowModal}
+                            onClick={() => handleShowModal(msg.type)}
                         >
                         {msg.type === 'user' ? (
                             <div className = "user-message">
@@ -90,23 +98,23 @@ function Chat() {
                         onChange={(e) => setInput(e.target.value)}
                         placeholder="메시지를 입력하세요."
                     />
-                    <button onClick={handleSend}    className="send-button">
+                    <button onClick={handleSend} className="send-button">
                         <img
                             src = {btnPointer}
                             alt = "Button Pointer"
                             style = {{
                                 maxWidth: '20px',
                                 maxHeight: '20px',
-                                objeftFit: 'contain'
+                                objectFit: 'contain'
                             }} />
                     </button>
                 </div>
             </div>
-            {showModal && (
-            <div className="modal">
-            <p>Modal Content</p>
-            <button onClick={handleShowModal}>Close</button>
-            </div>
+            {showModal && clickedMessage === 'bot' && (
+                <div className="modal">
+                    <p>Modal Content</p>
+                <button onClick={() => setShowModal(false)}>Close</button>
+                </div>
             )}
         </div>
     );
