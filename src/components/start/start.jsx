@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './start.css'; // 필요한 스타일이 있다면 작성
-import img1 from './img/1.png';
-import img2 from './img/2.png';
-import img3 from './img/3.png';
-import img4 from './img/4.png';
-import img5 from './img/5.png';
+import musicImg from './img/music.png';
+import videoImg from './img/video.png';
+import placeImg from './img/place.png';
+import bookImg from './img/book.png';
+import travelImg from './img/travel.png';
 
 function Start({ userName }) {
-    const images = [img1, img2, img3, img4, img5]; // 이미지 배열
+    const images = [musicImg, videoImg, placeImg, bookImg, travelImg]; // 이미지 배열
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     // 이름의 마지막 글자를 분석하여 적절한 조사를 반환하는 함수
