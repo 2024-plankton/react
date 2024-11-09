@@ -13,6 +13,7 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
   AWS_REGION: ap-northeast-2
+  CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 
 jobs:
   deploy:
@@ -43,3 +44,6 @@ jobs:
       - name: Upload to S3
         run: |
           aws s3 sync ./build s3://${{ env.S3_BUCKET_NAME }} --delete
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
