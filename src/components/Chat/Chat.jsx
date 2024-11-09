@@ -4,6 +4,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import "./Chat.css";
 import animationData from "./animation1.json";
 import botProfile from './img/logo_smile_2.png';
+import btnPointer from './img/btn_pointer.png';
 
 function Chat() {
     const [messages, setMessages] = useState([]);
@@ -90,7 +91,7 @@ function Chat() {
                         placeholder="메시지를 입력하세요."
                     />
                     <button onClick={handleSend}    className="send-button">
-                    📩
+                        <img src = {btnPointer} alt = "Button Pointer" style = {{width: '20px', height: '20px'}} />
                     </button>
                 </div>
             </div>

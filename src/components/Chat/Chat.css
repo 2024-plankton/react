@@ -4,9 +4,9 @@
     justify-content: flex-start;
     width: 50vw;
     height: 70vh;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 40px;
+    border-radius: 30px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, width 0.3s ease;
     background-color: white;
@@ -127,6 +127,8 @@
 }
 
 .input-box input {
+    height: 20px;
+    font-size: 15px;
     flex-grow: 1;
     padding: 8px;
     border: 1px solid #ddd;
