@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Chat.css";
 import botProfile from "./img/logo_smile_2.png";
 import btnPointer from "./img/btn_pointer.png";
+import eventImg from "./img/event.png";
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -69,15 +70,25 @@ function Chat() {
         },
         { withCredentials: true }
       );
-
-      const botMessage = response.data.responses
-        ? response.data.responses[0].text
-        : "응답이 없습니다.";
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { type: "bot", text: botMessage },
-      ]);
-    } catch (error) {
+      
+      if(response.data.responses){
+        response.data.responses.forEach((res) => {
+          if("map" in res){
+            fetchMapLink(res.map);
+          }
+          else if("youtube" in res){
+            fetchYoutubeLink(res.youtube);
+          }
+          else{
+            setMessages((prevMessages) => [
+              ...prevMessages,
+              {type: "bot", text: res.text || "응답 내용이 없습니다."},
+            ]);
+          }
+        });
+      }
+    }
+    catch (error) {
       console.error("메시지 전송 오류:", error);
       setMessages((prevMessages) => [
         ...prevMessages,
