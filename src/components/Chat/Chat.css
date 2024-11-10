@@ -95,6 +95,7 @@
   padding: 8px 0;
   flex-grow: 1;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .message {
