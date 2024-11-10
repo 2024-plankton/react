@@ -22,24 +22,34 @@ function Chat() {
     }
   }, [messages]);
 
-  const fetchYoutubeAndMapData = async (youtubeQuery, mapQuery) => {
-    try {
-      const youtubeResponse = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(
-          youtubeQuery
-        )}&type=video&maxResults=1&key=${apiKey}`
-      );
-      const videoId = youtubeResponse.data.items[0]?.id?.videoId;
-
-      setYoutubeUrl(`https://www.youtube.com/embed/${videoId}`);
-    } catch (error) {
-      console.error("YouTube API Error:", error);
+    const fetchYoutubeLink = async (youtubeQuery) => {
+        try {
+            const youtubeResponse = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(youtubeQuery)}&type=video&maxResults=1&key=${apiKey}`);
+            setYoutubeUrl(`https://www.youtube.com/embed/${videoId}`);
+        }
+        catch(error) {
+            console.error("YouTube API Error:", error);
+        }
     }
 
-    setMapUrl(
-      `https://www.google.com/maps/search/${encodeURIComponent(mapQuery)}`
-    );
-  };
+    const fetchMapLink = async (mapQuery) => {
+        setMapUrl(`https://www.google.com/maps/search/${encodeURIComponent(mapQuery)}`);
+    }
+
+    // fetchYoutubeLink와 fetchMapLink 두 함수로 기능 분리
+    // const fetchYoutubeAndMapData = async (youtubeQuery, mapQuery) => {
+    //     try {
+    //         const youtubeResponse = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(youtubeQuery)}&type=video&maxResults=1&key=${apiKey}`);
+    //         const vidieoId = youtubeResponse.data.items[0]?.id?.videoId;
+
+    //         setYoutubeUrl(`https://www.youtube.com/embed/${videoId}`);
+    //     }
+    //     catch(error){
+    //         console.error("YouTube API Error:", error);
+    //     }
+
+    //     setMapUrl(`https://www.google.com/maps/search/${encodeURIComponent(mapQuery)}`);
+    // };
 
   const handleSend = async () => {
     if (input.trim() === "" || isSending) return;
