@@ -17,7 +17,6 @@ function Chat() {
     const [youtubeUrl, setYoutubeUrl] = useState("");
     const [mapUrl, setMapUrl] = useState("");
     const messageBoxRef = useRef(null);
-    const id = uuidv4();
 
     useEffect(() => {
         if(messageBoxRef.current){
@@ -49,9 +48,8 @@ function Chat() {
         try {
             const chatServerUrl = process.env.REACT_APP_CHAT_SERVER_URL;
             const response = await axios.post(`${chatServerUrl}/chat`, {
-            name: id,
             query: input,
-            });
+            }, { withCredentials: true });
 
             const botMessage = response.data.responses ? response.data.responses[0].text : "응답이 없습니다.";
 
