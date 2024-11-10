@@ -26,15 +26,15 @@ const Login = ({ onLoginSuccess }) => {
             });
 
             if (response.ok) {
-                onLoginSuccess();
-                alert('로그인 성공');
+                onLoginSuccess(name);
+                alert('로그인되었습니다.');
             } else {
-                console.error('로그인 실패');
-                alert('로그인 실패');
+                console.error('정보를 확인해주세요.');
+                alert('정보를 확인해주세요.');
             }
         } catch (error) {
-            console.error('요청 오류:', error);
-            alert('서버 오류');
+            console.error('요청 오류: ', error);
+            alert('서버 오류입니다.');
         }
     };
 
