@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "./Chat.css";
 import botProfile from './img/logo_smile_2.png';
@@ -14,6 +14,8 @@ function Chat() {
     const [howAnimation, setShowAnimation] = useState(false);
     const [clickedMessage, setClickedMessage] = useState(null);
     const [isChatShrinking, setIsChatShrinking] = useState(false);
+    const [youtubeUrl, setYoutubeUrl] = useState("");
+    const [mapUrl, setMapUrl] = useState("");
     const messageBoxRef = useRef(null);
     const id = uuidv4();
 
@@ -22,6 +24,20 @@ function Chat() {
             messageBoxRef.current.scrollTop = messageBoxRef.current.scrollHeight;
         }
     }, [messages]);
+
+    const fetchYoutubeAndMapData = async (youtubeQuery, mapQuery) => {
+        try {
+            const youtubeResponse = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(youtubeQuery)}&type=video&maxResults=1&key=${apiKey}`);
+            const vidieoId = youtubeResponse.data.items[0]?.id?.videoId;
+
+            setYoutubeUrl(`https://www.youtube.com/embed/${videoId}`);
+        }
+        catch(error){
+            console.error("YouTube API Error:", error);
+        }
+
+        setMapUrl(`https://www.google.com/maps/search/${encodeURIComponent(mapQuery)}`);
+    };
 
     const handleSend = async () => {
         if (input.trim() === "") return;
@@ -129,7 +145,19 @@ function Chat() {
             {showModal && clickedMessage === 'bot' && (
                 <div className = "modal-container expand" onClick = {handleCloseModal}>
                     <div className = "modal">
-                        <img src = {eventImg} alt = "Event Image" className = "modal-image" />
+                        <iframe
+                            width = "100%"
+                            height = "315"
+                            src = {youtubeUrl}
+                            title = "YouTube video player"
+                            frameBoard = "0"
+                            allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className = "modal-image"
+                        ></iframe>
+                        <a href = {mapUrl} target = "_blank" rel = "noopener noreferrer">
+                        <img src = {eventImg} alt = "Map Image" className = "modal-image" />
+                        </a>
                     </div>
                 </div>
             )}
