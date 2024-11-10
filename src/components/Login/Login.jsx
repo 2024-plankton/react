@@ -44,15 +44,15 @@ const Login = ({ onLoginSuccess }) => {
             <img src={loginImg} alt="Login Image" className="login-image" /> {/* 이미지 추가 */}
             <input
                 type = "text"
-                placeholder = "아이디를 입력해주세요."
-                className = "idInput"
+                placeholder = "이름을 입력해주세요."
+                className = "nameInput"
                 value = {name}
                 onChange = {handleNameChange}
             />
             <input
                 type = "password"
-                placeholder = "비밀번호를 입력해주세요."
-                className = "pwdInput"
+                placeholder = "나이를 입력해주세요."
+                className = "ageInput"
                 value = {age}
                 onChange = {handleAgeChange}
             />
